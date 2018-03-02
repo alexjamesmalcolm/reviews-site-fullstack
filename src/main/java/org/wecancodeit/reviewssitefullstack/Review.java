@@ -3,9 +3,11 @@ package org.wecancodeit.reviewssitefullstack;
 public class Review {
 
 	private String title;
+	private String url;
 
 	public Review(String title, String url) {
 		this.title = title;
+		this.url = url;
 	}
 
 	public String getTitle() {
@@ -13,7 +15,7 @@ public class Review {
 	}
 
 	public String getUrl() {
-		return "face.jpg";
+		return url;
 	}
 
 }

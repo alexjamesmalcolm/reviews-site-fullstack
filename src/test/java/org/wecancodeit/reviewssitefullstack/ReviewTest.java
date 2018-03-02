@@ -28,7 +28,15 @@ public class ReviewTest {
 	@Test
 	public void shouldHaveUrlFaceJpg() {
 		String url = "face.jpg";
-		underTest = new Review("", "face.jpg");
+		underTest = new Review("", url);
+		String actual = underTest.getUrl();
+		assertThat(actual, is(url));
+	}
+	
+	@Test
+	public void shouldHaveUrlBodyJpg() {
+		String url = "body.jpg";
+		underTest = new Review("", url);
 		String actual = underTest.getUrl();
 		assertThat(actual, is(url));
 	}
