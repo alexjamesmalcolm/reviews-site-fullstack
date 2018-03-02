@@ -48,4 +48,12 @@ public class ReviewTest {
 		String actual = underTest.getContent();
 		assertThat(actual, is(content));
 	}
+	
+	@Test
+	public void shouldHaveContentWorld() {
+		String content = "World";
+		underTest = new Review("", "", content);
+		String actual = underTest.getContent();
+		assertThat(actual, is(content));
+	}
 }
