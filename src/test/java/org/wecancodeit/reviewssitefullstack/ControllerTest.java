@@ -26,6 +26,12 @@ public class ControllerTest {
 	
 	@Mock
 	private CategoryRepository categoryRepo;
+	
+	@Mock
+	private Review review;
+	
+	@Mock
+	private ReviewRepository reviewRepo;
 
 	@Mock
 	private Model model;
@@ -55,6 +61,16 @@ public class ControllerTest {
 		
 		verify(model).addAttribute("category", category);
 	}
-	public void shouldAddSingleReviewToModel() {}
+	
+	@Test
+	public void shouldAddSingleReviewToModel() {
+		long reviewId = 1L;
+		when(review.getId()).thenReturn(reviewId);
+		when(reviewRepo.findOne(reviewId)).thenReturn(review);
+		
+		underTest.getReview(reviewId, model);
+		
+		verify(model).addAttribute("review", review);
+	}
 	public void shouldAddSingleTagToModel() {}
 }
