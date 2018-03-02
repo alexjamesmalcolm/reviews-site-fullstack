@@ -56,4 +56,12 @@ public class ReviewTest {
 		String actual = underTest.getContent();
 		assertThat(actual, is(content));
 	}
+	
+	@Test
+	public void shouldHaveTwoDifferentTitledReviewsBeNotEqual() {
+		Review first = new Review("first", "", "", null);
+		Review second = new Review("second", "", "", null);
+		boolean actual = first.equals(second);
+		assertThat(actual, is(false));
+	}
 }

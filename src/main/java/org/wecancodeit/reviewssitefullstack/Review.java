@@ -17,6 +17,7 @@ public class Review {
 	@ManyToOne
 	private Category category;
 	
+	@SuppressWarnings("unused")
 	private Review() {}
 
 	public Review(String title, String url, String content, Category category) {
@@ -40,8 +41,8 @@ public class Review {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return true;
-		
+		Review other = (Review) obj;
+		return other.title == title;
 	}
 
 }
