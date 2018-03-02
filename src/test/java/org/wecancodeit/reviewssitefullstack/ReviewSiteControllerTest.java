@@ -31,12 +31,18 @@ public class ReviewSiteControllerTest {
 
 	@Mock
 	private Review review;
+	
+	@Mock
+	private Review anotherReview;
 
 	@Mock
 	private ReviewRepository reviewRepo;
 
 	@Mock
 	private Tag tag;
+	
+	@Mock
+	private Tag anotherTag;
 
 	@Mock
 	private TagRepository tagRepo;
@@ -90,6 +96,22 @@ public class ReviewSiteControllerTest {
 		underTest.getTag(tagId, model);
 
 		verify(model).addAttribute("tag", tag);
+	}
+	
+	@Test
+	public void shouldAddTagsReviewAndCategoriesToModel() {
+		Collection<Tag> allTags = asList(tag, anotherTag);
+		Collection<Review> allReviews = asList(review, anotherReview);
+		Collection<Category> allCategories = asList(category, anotherCategory);
+		when(tagRepo.findAll()).thenReturn(allTags);
+		when(reviewRepo.findAll()).thenReturn(allReviews);
+		when(categoryRepo.findAll()).thenReturn(allCategories);
+		
+		underTest.getAllTables(model);
+		
+		verify(model).addAttribute("tags", allTags);
+		verify(model).addAttribute("reviews", allReviews);
+		verify(model).addAttribute("categories", allCategories);
 	}
 	
 	@Test

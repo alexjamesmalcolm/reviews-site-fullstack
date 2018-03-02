@@ -49,4 +49,13 @@ public class ReviewSiteController {
 		return "tag-view";
 	}
 
+	public void getAllTables(Model model) {
+		Collection<Tag> tags = (Collection<Tag>) tagRepo.findAll();
+		model.addAttribute("tags", tags);
+		Collection<Review> reviews = (Collection<Review>) reviewRepo.findAll();
+		model.addAttribute("reviews", reviews);
+		Collection<Category> categories = (Collection<Category>) categoryRepo.findAll();
+		model.addAttribute("categories", categories);
+	}
+
 }
