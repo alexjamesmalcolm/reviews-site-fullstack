@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class ReviewTest {
-	
+
 	private Review underTest;
 
 	@Test
@@ -16,7 +16,7 @@ public class ReviewTest {
 		String actual = underTest.getTitle();
 		assertThat(actual, is(title));
 	}
-	
+
 	@Test
 	public void shouldHaveTitleBlackPanther() {
 		String title = "Black Panther";
@@ -24,7 +24,7 @@ public class ReviewTest {
 		String actual = underTest.getTitle();
 		assertThat(actual, is(title));
 	}
-	
+
 	@Test
 	public void shouldHaveUrlFaceJpg() {
 		String url = "face.jpg";
@@ -32,7 +32,7 @@ public class ReviewTest {
 		String actual = underTest.getUrl();
 		assertThat(actual, is(url));
 	}
-	
+
 	@Test
 	public void shouldHaveUrlBodyJpg() {
 		String url = "body.jpg";
@@ -40,7 +40,7 @@ public class ReviewTest {
 		String actual = underTest.getUrl();
 		assertThat(actual, is(url));
 	}
-	
+
 	@Test
 	public void shouldHaveContentHello() {
 		String content = "Hello";
@@ -48,7 +48,7 @@ public class ReviewTest {
 		String actual = underTest.getContent();
 		assertThat(actual, is(content));
 	}
-	
+
 	@Test
 	public void shouldHaveContentWorld() {
 		String content = "World";
@@ -56,12 +56,20 @@ public class ReviewTest {
 		String actual = underTest.getContent();
 		assertThat(actual, is(content));
 	}
-	
+
 	@Test
 	public void shouldHaveTwoDifferentTitledReviewsBeNotEqual() {
 		Review first = new Review("first", "", "", null);
 		Review second = new Review("second", "", "", null);
 		boolean actual = first.equals(second);
+		assertThat(actual, is(false));
+	}
+
+	@Test
+	public void shouldHaveOtherClassNotEqualReview() {
+		underTest = new Review("", "", "", null);
+		String other = new String();
+		boolean actual = underTest.equals(other);
 		assertThat(actual, is(false));
 	}
 }

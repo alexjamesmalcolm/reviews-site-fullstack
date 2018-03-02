@@ -16,9 +16,10 @@ public class Review {
 	private String content;
 	@ManyToOne
 	private Category category;
-	
+
 	@SuppressWarnings("unused")
-	private Review() {}
+	private Review() {
+	}
 
 	public Review(String title, String url, String content, Category category) {
 		this.title = title;
@@ -38,11 +39,14 @@ public class Review {
 	public String getContent() {
 		return content;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		Review other = (Review) obj;
-		return other.title == title;
+		if (obj.getClass() == this.getClass()) {
+			Review other = (Review) obj;
+			return other.title == title;
+		}
+		return false;
 	}
 
 }
