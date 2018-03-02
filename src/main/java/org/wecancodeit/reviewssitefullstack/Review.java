@@ -39,14 +39,23 @@ public class Review {
 	public String getContent() {
 		return content;
 	}
+	
+	@Override
+	public int hashCode() {
+		return ((Long) id).hashCode();
+	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj.getClass() == this.getClass()) {
 			Review other = (Review) obj;
-			return other.title == title;
+			return other.hashCode() == hashCode();
 		}
 		return false;
+	}
+
+	public Object getId() {
+		return id;
 	}
 
 }
