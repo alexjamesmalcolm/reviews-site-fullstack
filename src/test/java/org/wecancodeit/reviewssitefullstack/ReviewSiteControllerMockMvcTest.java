@@ -49,4 +49,9 @@ public class ReviewSiteControllerMockMvcTest {
 	public void shouldReturnReviewView() throws Exception {
 		mvc.perform(get("/review?id=1")).andExpect(view().name(is("review-view")));
 	}
+	
+	@Test
+	public void shouldReturnIndex() throws Exception {
+		mvc.perform(get("/")).andExpect(view().name(is("index")));
+	}
 }

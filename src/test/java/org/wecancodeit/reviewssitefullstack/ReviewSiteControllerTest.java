@@ -115,6 +115,12 @@ public class ReviewSiteControllerTest {
 	}
 	
 	@Test
+	public void shouldHaveGetAllTablesReturnIndex() {
+		String templateName = underTest.getAllTables(model);
+		assertThat(templateName, is("index"));
+	}
+	
+	@Test
 	public void shouldHaveGetCategoriesReturnCategoriesView() {
 		String templateName = underTest.getCategories(model);
 		assertThat(templateName, is("categories-view"));
