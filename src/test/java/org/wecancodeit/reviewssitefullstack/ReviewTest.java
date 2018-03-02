@@ -12,7 +12,7 @@ public class ReviewTest {
 	@Test
 	public void shouldHaveTitleStarWars() {
 		String title = "Star Wars";
-		underTest = new Review(title, "face.jpg");
+		underTest = new Review(title, "face.jpg", "Hello");
 		String actual = underTest.getTitle();
 		assertThat(actual, is(title));
 	}
@@ -20,7 +20,7 @@ public class ReviewTest {
 	@Test
 	public void shouldHaveTitleBlackPanther() {
 		String title = "Black Panther";
-		underTest = new Review(title, "face.jpg");
+		underTest = new Review(title, "face.jpg", "Hello");
 		String actual = underTest.getTitle();
 		assertThat(actual, is(title));
 	}
@@ -28,7 +28,7 @@ public class ReviewTest {
 	@Test
 	public void shouldHaveUrlFaceJpg() {
 		String url = "face.jpg";
-		underTest = new Review("", url);
+		underTest = new Review("", url, "Hello");
 		String actual = underTest.getUrl();
 		assertThat(actual, is(url));
 	}
@@ -36,8 +36,16 @@ public class ReviewTest {
 	@Test
 	public void shouldHaveUrlBodyJpg() {
 		String url = "body.jpg";
-		underTest = new Review("", url);
+		underTest = new Review("", url, "Hello");
 		String actual = underTest.getUrl();
 		assertThat(actual, is(url));
+	}
+	
+	@Test
+	public void shouldHaveContentHello() {
+		String content = "Hello";
+		underTest = new Review("", "", content);
+		String actual = underTest.getContent();
+		assertThat(actual, is(content));
 	}
 }
