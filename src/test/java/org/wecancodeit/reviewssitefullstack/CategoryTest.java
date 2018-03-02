@@ -3,8 +3,6 @@ package org.wecancodeit.reviewssitefullstack;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class CategoryTest {
