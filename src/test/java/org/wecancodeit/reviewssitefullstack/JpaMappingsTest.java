@@ -21,6 +21,9 @@ public class JpaMappingsTest {
 	
 	@Resource
 	private CategoryRepository categoryRepo;
+
+	@Resource
+	private TagRepository tagRepo;
 	
 	@Test
 	public void shouldSaveAndLoadCategory() {
@@ -31,5 +34,16 @@ public class JpaMappingsTest {
 		
 		category = categoryRepo.findOne(categoryId);
 		assertThat(category.getId(), is(greaterThan(0L)));
+	}
+	
+	@Test
+	public void shouldSaveAndLoadTag() {
+		Tag tag = new Tag("");
+		tag = tagRepo.save(tag);
+		
+		long tagId = tag.getId();
+		
+		tag = tagRepo.findOne(tagId);
+		assertThat(tag.getId(), is(greaterThan(0L)));
 	}
 }
