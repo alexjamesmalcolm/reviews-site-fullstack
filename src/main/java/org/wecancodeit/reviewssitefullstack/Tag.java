@@ -25,6 +25,10 @@ public class Tag {
 		this.name = name;
 	}
 
+	Tag(long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -35,6 +39,15 @@ public class Tag {
 
 	public Collection<Review> getReviews() {
 		return reviews;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj.getClass() == getClass()) {
+			System.out.println(((Tag) obj).getId() + ", " + getId());
+			return ((Tag) obj).getId() == getId();
+		}
+		return false;
 	}
 
 }

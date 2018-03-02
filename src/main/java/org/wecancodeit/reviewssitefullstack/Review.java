@@ -36,6 +36,10 @@ public class Review {
 		this.tags = new HashSet<>(Arrays.asList(tags));
 	}
 
+	public Review(long id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -55,15 +59,18 @@ public class Review {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj.getClass() == this.getClass()) {
-			Review other = (Review) obj;
-			return other.hashCode() == hashCode();
+		if (obj.getClass() != getClass()) {
+			return false;
 		}
-		return false;
+		return obj.hashCode() == hashCode();
 	}
 
-	public Object getId() {
+	public long getId() {
 		return id;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 }

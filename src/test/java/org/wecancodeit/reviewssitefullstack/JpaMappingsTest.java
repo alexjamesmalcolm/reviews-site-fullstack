@@ -88,4 +88,22 @@ public class JpaMappingsTest {
 		tag = tagRepo.findOne(tagId);
 		assertThat(tag.getReviews(), containsInAnyOrder(first, second));
 	}
+
+	@Test
+	public void shouldSaveTagToReviewRelationship() {
+		Tag first = new Tag("");
+		tagRepo.save(first);
+		Tag second = new Tag("");
+		tagRepo.save(second);
+
+		Review review = new Review("", "", "", null, first, second);
+		reviewRepo.save(review);
+		long reviewId = review.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		review = reviewRepo.findOne(reviewId);
+		assertThat(review.getTags(), containsInAnyOrder(first, second));
+	}
 }
