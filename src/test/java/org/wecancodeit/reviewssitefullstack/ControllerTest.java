@@ -1,0 +1,51 @@
+package org.wecancodeit.reviewssitefullstack;
+
+import static java.util.Arrays.asList;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.ui.Model;
+
+public class ControllerTest {
+	
+	@InjectMocks
+	private Controller underTest;
+	
+	@Mock
+	private Category category;
+	
+	@Mock
+	private Category anotherCategory;
+	
+	@Mock
+	private CategoryRepository categoryRepo;
+
+	@Mock
+	private Model model;
+
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@Test
+	public void shouldAddCategoriesToModel() {
+		Collection<Category> allCategories = asList(category, anotherCategory);
+		when(categoryRepo.findAll()).thenReturn(allCategories);
+		
+		underTest.listCategories(model);
+		
+		verify(model).addAttribute("categories", allCategories);
+	}
+	
+	public void shouldAddSingleCategoryToModel() {}
+	public void shouldAddSingleReviewToModel() {}
+	public void shouldAddSingleTagToModel() {}
+}
