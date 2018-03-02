@@ -1,5 +1,6 @@
 package org.wecancodeit.reviewssitefullstack;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -24,6 +25,9 @@ public class JpaMappingsTest {
 
 	@Resource
 	private TagRepository tagRepo;
+
+	@Resource
+	private ReviewRepository reviewRepo;
 	
 	@Test
 	public void shouldSaveAndLoadCategory() {
@@ -45,5 +49,25 @@ public class JpaMappingsTest {
 		
 		tag = tagRepo.findOne(tagId);
 		assertThat(tag.getId(), is(greaterThan(0L)));
+	}
+	
+	@Test
+	public void shouldSaveReviewToCategoryRelationship() {
+		Category category = new Category("Movies");
+		categoryRepo.save(category);
+		long categoryId = category.getId();
+		
+		Review first = new Review("", "", "", category);
+		reviewRepo.save(first);
+		
+		Review second = new Review("", "", "", category);
+		reviewRepo.save(second);
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		category = categoryRepo.findOne(categoryId);
+		System.out.println(category.getReviews());
+		assertThat(category.getReviews(), containsInAnyOrder(first, second));
 	}
 }

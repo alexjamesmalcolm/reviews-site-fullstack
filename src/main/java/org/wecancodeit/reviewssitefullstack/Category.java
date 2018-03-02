@@ -1,8 +1,11 @@
 package org.wecancodeit.reviewssitefullstack;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -11,6 +14,12 @@ public class Category {
 	@GeneratedValue
 	private long id;
 	private String name;
+	@OneToMany(mappedBy = "category")
+	private Collection<Review> reviews;
+
+	@SuppressWarnings("unused")
+	private Category() {
+	}
 
 	public Category(String name) {
 		this.name = name;
@@ -22,6 +31,10 @@ public class Category {
 
 	public long getId() {
 		return id;
+	}
+
+	public Collection<Review> getReviews() {
+		return reviews;
 	}
 
 }
