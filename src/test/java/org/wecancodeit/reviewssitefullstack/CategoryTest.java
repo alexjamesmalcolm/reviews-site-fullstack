@@ -16,4 +16,12 @@ public class CategoryTest {
 		String returnedName = underTest.getName();
 		assertThat(returnedName, is(name));
 	}
+	
+	@Test
+	public void shouldHaveCategoryNamedMusic() {
+		String name = "Music";
+		Category underTest = new Category(name);
+		String actual = underTest.getName();
+		assertThat(actual, is(name));
+	}
 }
