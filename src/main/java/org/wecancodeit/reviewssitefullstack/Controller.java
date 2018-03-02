@@ -13,6 +13,9 @@ public class Controller {
 
 	@Resource
 	private ReviewRepository reviewRepo;
+	
+	@Resource
+	private TagRepository tagRepo;
 
 	public void getCategories(Model model) {
 		Collection<Category> categories = (Collection<Category>) categoryRepo.findAll();
@@ -27,6 +30,11 @@ public class Controller {
 	public void getReview(long reviewId, Model model) {
 		Review review = reviewRepo.findOne(reviewId);
 		model.addAttribute("review", review);
+	}
+
+	public void getTag(long tagId, Model model) {
+		Tag tag = tagRepo.findOne(tagId);
+		model.addAttribute("tag", tag);
 	}
 
 }
