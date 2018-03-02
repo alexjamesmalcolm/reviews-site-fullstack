@@ -35,7 +35,8 @@ public class ReviewSiteController {
 		return "single-category-view";
 	}
 
-	public String getReview(long reviewId, Model model) {
+	@RequestMapping("/review")
+	public String getReview(@RequestParam(value = "id", required = true) long reviewId, Model model) {
 		Review review = reviewRepo.findOne(reviewId);
 		model.addAttribute("review", review);
 		return "review-view";

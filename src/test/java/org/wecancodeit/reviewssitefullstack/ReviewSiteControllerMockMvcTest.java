@@ -44,4 +44,9 @@ public class ReviewSiteControllerMockMvcTest {
 	public void shouldReturnTagView() throws Exception {
 		mvc.perform(get("/tag?id=1")).andExpect(view().name(is("tag-view")));
 	}
+	
+	@Test
+	public void shouldReturnReviewView() throws Exception {
+		mvc.perform(get("/review?id=1")).andExpect(view().name(is("review-view")));
+	}
 }
