@@ -17,9 +17,10 @@ public class Controller {
 	@Resource
 	private TagRepository tagRepo;
 
-	public void getCategories(Model model) {
+	public String getCategories(Model model) {
 		Collection<Category> categories = (Collection<Category>) categoryRepo.findAll();
 		model.addAttribute("categories", categories);
+		return "categories-view";
 	}
 
 	public void getCategory(long categoryId, Model model) {

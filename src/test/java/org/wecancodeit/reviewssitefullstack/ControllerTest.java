@@ -1,6 +1,8 @@
 package org.wecancodeit.reviewssitefullstack;
 
 import static java.util.Arrays.asList;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -88,5 +90,11 @@ public class ControllerTest {
 		underTest.getTag(tagId, model);
 
 		verify(model).addAttribute("tag", tag);
+	}
+	
+	@Test
+	public void shouldHaveGetCategoriesReturnCategoriesView() {
+		String templateName = underTest.getCategories(model);
+		assertThat(templateName, is("categories-view"));
 	}
 }
