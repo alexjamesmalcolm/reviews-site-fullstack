@@ -35,9 +35,10 @@ public class Controller {
 		return "review-view";
 	}
 
-	public void getTag(long tagId, Model model) {
+	public String getTag(long tagId, Model model) {
 		Tag tag = tagRepo.findOne(tagId);
 		model.addAttribute("tag", tag);
+		return "tag-view";
 	}
 
 }

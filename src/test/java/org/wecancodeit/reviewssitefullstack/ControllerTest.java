@@ -109,4 +109,10 @@ public class ControllerTest {
 		String templateName = underTest.getReview(0L, model);
 		assertThat(templateName, is("review-view"));
 	}
+	
+	@Test
+	public void shouldHaveGetTagReturnTagView() {
+		String templateName = underTest.getTag(0L, model);
+		assertThat(templateName, is("tag-view"));
+	}
 }
