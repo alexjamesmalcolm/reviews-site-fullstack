@@ -103,4 +103,10 @@ public class ControllerTest {
 		String templateName = underTest.getCategory(0L, model);
 		assertThat(templateName, is("single-category-view"));
 	}
+	
+	@Test
+	public void shouldHaveGetReviewReturnReviewView() {
+		String templateName = underTest.getReview(0L, model);
+		assertThat(templateName, is("review-view"));
+	}
 }

@@ -29,9 +29,10 @@ public class Controller {
 		return "single-category-view";
 	}
 
-	public void getReview(long reviewId, Model model) {
+	public String getReview(long reviewId, Model model) {
 		Review review = reviewRepo.findOne(reviewId);
 		model.addAttribute("review", review);
+		return "review-view";
 	}
 
 	public void getTag(long tagId, Model model) {
