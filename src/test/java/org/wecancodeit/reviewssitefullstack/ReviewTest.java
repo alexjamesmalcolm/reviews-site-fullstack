@@ -16,4 +16,12 @@ public class ReviewTest {
 		String actual = underTest.getTitle();
 		assertThat(actual, is(title));
 	}
+	
+	@Test
+	public void shouldHaveTitleBlackPanther() {
+		String title = "Black Panther";
+		Review underTest = new Review(title);
+		String actual = underTest.getTitle();
+		assertThat(actual, is(title));
+	}
 }
