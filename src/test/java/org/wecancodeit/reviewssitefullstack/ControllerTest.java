@@ -40,12 +40,21 @@ public class ControllerTest {
 		Collection<Category> allCategories = asList(category, anotherCategory);
 		when(categoryRepo.findAll()).thenReturn(allCategories);
 		
-		underTest.listCategories(model);
+		underTest.getCategories(model);
 		
 		verify(model).addAttribute("categories", allCategories);
 	}
 	
-	public void shouldAddSingleCategoryToModel() {}
+	@Test
+	public void shouldAddSingleCategoryToModel() {
+		long categoryId = 1L;
+		when(category.getId()).thenReturn(categoryId);
+		when(categoryRepo.findOne(categoryId)).thenReturn(category);
+		
+		underTest.getCategory(categoryId, model);
+		
+		verify(model).addAttribute("category", category);
+	}
 	public void shouldAddSingleReviewToModel() {}
 	public void shouldAddSingleTagToModel() {}
 }
