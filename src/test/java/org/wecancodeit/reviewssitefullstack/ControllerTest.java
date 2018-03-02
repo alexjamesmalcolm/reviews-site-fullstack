@@ -97,4 +97,10 @@ public class ControllerTest {
 		String templateName = underTest.getCategories(model);
 		assertThat(templateName, is("categories-view"));
 	}
+	
+	@Test
+	public void shouldHaveGetCategoryReturnSingleCategoryView() {
+		String templateName = underTest.getCategory(0L, model);
+		assertThat(templateName, is("single-category-view"));
+	}
 }
