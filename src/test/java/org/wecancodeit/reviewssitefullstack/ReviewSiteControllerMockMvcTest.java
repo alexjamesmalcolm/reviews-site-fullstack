@@ -39,4 +39,9 @@ public class ReviewSiteControllerMockMvcTest {
 	public void shouldReturnSingleCategoryView() throws Exception {
 		mvc.perform(get("/category?id=1")).andExpect(view().name(is("single-category-view")));
 	}
+	
+	@Test
+	public void shouldReturnTagView() throws Exception {
+		mvc.perform(get("/tag?id=1")).andExpect(view().name(is("tag-view")));
+	}
 }

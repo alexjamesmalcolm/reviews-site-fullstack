@@ -29,8 +29,7 @@ public class ReviewSiteController {
 	}
 
 	@RequestMapping("/category")
-	public String getCategory(@RequestParam(value = "id", required = true) long categoryId,
-			Model model) {
+	public String getCategory(@RequestParam(value = "id", required = true) long categoryId, Model model) {
 		Category category = categoryRepo.findOne(categoryId);
 		model.addAttribute("category", category);
 		return "single-category-view";
@@ -42,7 +41,8 @@ public class ReviewSiteController {
 		return "review-view";
 	}
 
-	public String getTag(long tagId, Model model) {
+	@RequestMapping("/tag")
+	public String getTag(@RequestParam(value = "id", required = true) long tagId, Model model) {
 		Tag tag = tagRepo.findOne(tagId);
 		model.addAttribute("tag", tag);
 		return "tag-view";
