@@ -1,6 +1,8 @@
 package org.wecancodeit.reviewssitefullstack;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +23,9 @@ public class Category {
 	private Category() {
 	}
 
-	public Category(String name, Review...reviews) {
+	public Category(String name, Review... reviews) {
 		this.name = name;
+		this.reviews = new HashSet<>(Arrays.asList(reviews));
 	}
 
 	public String getName() {
@@ -38,7 +41,7 @@ public class Category {
 	}
 
 	public int getReviewCount() {
-		return 2;
+		return reviews.size();
 	}
 
 }

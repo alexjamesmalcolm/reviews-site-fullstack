@@ -43,4 +43,11 @@ public class CategoryTest {
 		int actual = underTest.getReviewCount();
 		assertThat(actual, is(2));
 	}
+	
+	@Test
+	public void shouldGetNumberOfReviewsInCategoryIsOne() {
+		Category underTest = new Category("foo", review);
+		int actual = underTest.getReviewCount();
+		assertThat(actual, is(1));
+	}
 }
