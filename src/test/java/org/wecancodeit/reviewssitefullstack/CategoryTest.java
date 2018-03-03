@@ -40,14 +40,14 @@ public class CategoryTest {
 	@Test
 	public void shouldGetNumberOfReviewsInCategoryIsTwo() {
 		Category underTest = new Category("foo", review, anotherReview);
-		int actual = underTest.getReviewCount();
+		int actual = underTest.getReviewsCount();
 		assertThat(actual, is(2));
 	}
 	
 	@Test
 	public void shouldGetNumberOfReviewsInCategoryIsOne() {
 		Category underTest = new Category("foo", review);
-		int actual = underTest.getReviewCount();
+		int actual = underTest.getReviewsCount();
 		assertThat(actual, is(1));
 	}
 }

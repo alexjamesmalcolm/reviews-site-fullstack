@@ -40,7 +40,7 @@ public class Category {
 		return reviews;
 	}
 
-	public int getReviewCount() {
+	public int getReviewsCount() {
 		return reviews.size();
 	}
 
