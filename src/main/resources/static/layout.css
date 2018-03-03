@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+div.container {
+	display: grid;
+	grid-template-columns: 25% 75%;
+	grid-template-rows: 4rem auto 3rem;
+	margin: 0 6rem;
+}
+
+header {
+	grid-column: -1 / 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main {
+}
+
+aside {
+}
+
+footer {
+	grid-column: -1 / 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

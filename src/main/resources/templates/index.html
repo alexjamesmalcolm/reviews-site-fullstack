@@ -1,9 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title></title>
+	<title>Review Site</title>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
 </head>
 <body>
-
+	<div class="container">
+		<header>
+			<h1>
+				Reviews Site Fullstack
+			</h1>
+		</header>
+		<aside>
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+				<li th:each="category : ${categories}">
+					<a th:href="@{category(id=${category.id})}">
+						<span class="category" th:text="${category.name}"/>
+						<span class="count" th:text="${category.getReviewsCount()}"/>
+					</a>
+				</li>
+			</ul>
+		</aside>
+		<main>
+			<article th:each="review : ${reviews}">
+				<h2>
+				<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+				</h2>
+				<img th:src="@{${review.url}}"/>
+			</article>
+		</main>
+		<footer>
+			<small>
+				Website made by Ryan Carson and Alex Malcolm
+			</small>
+		</footer>
+	</div>
 </body>
 </html>
