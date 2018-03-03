@@ -3,9 +3,23 @@ package org.wecancodeit.reviewssitefullstack;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class CategoryTest {
+	
+	@Mock
+	Review review;
+	
+	@Mock
+	Review anotherReview;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void shouldHaveCategoryNameMovie() {
@@ -21,5 +35,12 @@ public class CategoryTest {
 		Category underTest = new Category(name);
 		String actual = underTest.getName();
 		assertThat(actual, is(name));
+	}
+	
+	@Test
+	public void shouldGetNumberOfReviewsInCategoryIsTwo() {
+		Category underTest = new Category("foo", review, anotherReview);
+		int actual = underTest.getReviewCount();
+		assertThat(actual, is(2));
 	}
 }

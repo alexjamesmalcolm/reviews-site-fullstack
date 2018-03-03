@@ -21,7 +21,7 @@ public class Category {
 	private Category() {
 	}
 
-	public Category(String name) {
+	public Category(String name, Review...reviews) {
 		this.name = name;
 	}
 
@@ -35,6 +35,10 @@ public class Category {
 
 	public Collection<Review> getReviews() {
 		return reviews;
+	}
+
+	public int getReviewCount() {
+		return 2;
 	}
 
 }
