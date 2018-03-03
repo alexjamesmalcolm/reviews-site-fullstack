@@ -99,17 +99,14 @@ public class ReviewSiteControllerTest {
 	}
 	
 	@Test
-	public void shouldAddTagsReviewAndCategoriesToModel() {
-		Collection<Tag> allTags = asList(tag, anotherTag);
+	public void shouldAddReviewAndCategoriesToModel() {
 		Collection<Review> allReviews = asList(review, anotherReview);
 		Collection<Category> allCategories = asList(category, anotherCategory);
-		when(tagRepo.findAll()).thenReturn(allTags);
 		when(reviewRepo.findAll()).thenReturn(allReviews);
 		when(categoryRepo.findAll()).thenReturn(allCategories);
 		
 		underTest.getAllTables(model);
 		
-		verify(model).addAttribute("tags", allTags);
 		verify(model).addAttribute("reviews", allReviews);
 		verify(model).addAttribute("categories", allCategories);
 	}

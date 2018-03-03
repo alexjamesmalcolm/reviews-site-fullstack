@@ -51,8 +51,6 @@ public class ReviewSiteController {
 
 	@RequestMapping("/")
 	public String getAllTables(Model model) {
-		Collection<Tag> tags = (Collection<Tag>) tagRepo.findAll();
-		model.addAttribute("tags", tags);
 		Collection<Review> reviews = (Collection<Review>) reviewRepo.findAll();
 		model.addAttribute("reviews", reviews);
 		Collection<Category> categories = (Collection<Category>) categoryRepo.findAll();
