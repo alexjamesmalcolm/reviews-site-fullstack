@@ -7,14 +7,6 @@ import java.io.IOException;
 public class CSVReader {
 
 	public static void main(String[] args) {
-		// String file = "7817_1.csv";
-		// try {
-		// BufferedReader br = new BufferedReader(new FileReader(file));
-		// } catch (FileNotFoundException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		//
 		String csvFile = "consumer-reviews-of-amazon-products-QueryResult.csv";
 		String line = "";
 		String cvsSplitBy = ",";
