@@ -5,22 +5,37 @@
 
 div.container {
 	display: grid;
-	grid-template-columns: 25% 75%;
 	grid-template-rows: 4rem auto 3rem;
 	margin: 0 6rem;
+	height: 100vh;
+}
+
+div.container.index {
+	grid-template-columns: 25% 75%;
 }
 
 header {
 	grid-column: -1 / 1;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+}
+
+nav ul {
+	display: flex;
+}
+
+nav ul li {
+	margin: 0 1rem;
 }
 
 main {
 }
 
 aside {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 footer {

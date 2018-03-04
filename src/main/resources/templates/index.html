@@ -3,13 +3,24 @@
 <head>
 	<title>Review Site</title>
 	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-	<div class="container">
+	<div class="container index">
 		<header>
 			<h1>
 				Reviews Site Fullstack
 			</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/categories">Categories</a>
+					</li>
+				</ul>
+			</nav>
 		</header>
 		<aside>
 			<ul>
@@ -27,12 +38,12 @@
 		<main>
 			<article th:each="review : ${reviews}">
 				<h2>
-				<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+					<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
 				</h2>
 				<img th:src="@{${review.url}}"/>
 			</article>
 		</main>
-		<footer>
+		<footer th:fragment="footer">
 			<small>
 				Website made by Ryan Carson and Alex Malcolm
 			</small>
