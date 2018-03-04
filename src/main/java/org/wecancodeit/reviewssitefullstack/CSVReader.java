@@ -44,7 +44,7 @@ public class CSVReader {
 	}
 
 	public static String removeDoubleQuotes(String input) {
-		return "test";
+		return input.replaceAll("\"", "");
 	}
 
 }

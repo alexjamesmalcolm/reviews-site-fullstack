@@ -14,4 +14,11 @@ public class CSVReaderTest {
 		String output = removeDoubleQuotes(input);
 		assertThat(output, is("test"));
 	}
+	
+	@Test
+	public void shouldRemoveDoubleQuotesBar() {
+		String input = "b\"ar";
+		String output = removeDoubleQuotes(input);
+		assertThat(output, is("bar"));
+	}
 }
