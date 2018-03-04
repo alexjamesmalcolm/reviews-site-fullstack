@@ -22,6 +22,16 @@
 				</ul>
 			</nav>
 		</header>
+		<main>
+			<article th:each="review : ${reviews}">
+				<div class="article-fragment">
+					<h2>
+						<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+					</h2>
+					<img th:src="@{${review.url}}"/>
+				</div>
+			</article>
+		</main>
 		<aside>
 			<ul>
 				<li>
@@ -35,14 +45,6 @@
 				</li>
 			</ul>
 		</aside>
-		<main>
-			<article th:each="review : ${reviews}">
-				<h2>
-					<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
-				</h2>
-				<img th:src="@{${review.url}}"/>
-			</article>
-		</main>
 		<footer th:fragment="footer">
 			<small>
 				Website made by Ryan Carson and Alex Malcolm

@@ -11,7 +11,7 @@ div.container {
 }
 
 div.container.index {
-	grid-template-columns: 25% 75%;
+	grid-template-columns: 75% 25%;
 }
 
 header {

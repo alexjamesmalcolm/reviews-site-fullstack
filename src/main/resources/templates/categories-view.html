@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title></title>
+	<title>Categories</title>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-
+	<div class="container">
+		<header th:replace="index :: header"/>
+		<main>
+			<ul>
+				<li th:each="category : ${categories}">
+					<a th:href="@{category(id=${category.id})}">
+						<h2 th:text="${category.name}"/>
+					</a>
+				</li>
+			</ul>
+		</main>
+		<footer th:replace="index :: footer"/>
+	</div>
 </body>
 </html>

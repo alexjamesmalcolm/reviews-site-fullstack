@@ -11,7 +11,11 @@
 		<main>
 			<article>
 				<img th:src="@{'images/'+${review.url}}"/>
-				<p>Category: <span th:text="@{${review.category.name}}"/></p>
+				<p>Category:
+					<a th:href="@{category(id=${review.category.id})}">
+						<span th:text="@{${review.category.name}}"/>
+					</a>
+				</p>
 				<p th:text="${review.content}"/>
 				<p>Tags:
 					<a th:href="@{tag(id=${tag.id})}" th:each="tag : ${review.tags}">

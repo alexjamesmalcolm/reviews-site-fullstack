@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title></title>
+	<title th:text="${category.name}"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-
+	<div class="container">
+		<header th:replace="index :: header"/>
+		<main>
+			<article th:each="review : ${category.reviews}">
+				<div th:replace="index :: div.article-fragment"/>
+			</article>
+		</main>
+		<footer th:replace="index :: footer"/>
+	</div>
 </body>
 </html>
