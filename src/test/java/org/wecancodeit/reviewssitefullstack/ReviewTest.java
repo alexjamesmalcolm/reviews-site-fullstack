@@ -3,11 +3,22 @@ package org.wecancodeit.reviewssitefullstack;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class ReviewTest {
+	
+	@Mock
+	private Category category;
 
 	private Review underTest;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
 
 	@Test
 	public void shouldHaveTitleStarWars() {
@@ -67,17 +78,24 @@ public class ReviewTest {
 
 	@Test
 	public void shouldHaveTwoDifferentIdReviewsBeNotEqual() {
-		Review review = new Review(1L);
-		Review anotherReview = new Review(2L);
+		Review review = new Review(1L, null);
+		Review anotherReview = new Review(2L, null);
 		boolean actual = review.equals(anotherReview);
 		assertThat(actual, is(false));
 	}
 
 	@Test
 	public void shouldHaveTwoSameIdReviewsBeEqual() {
-		Review review = new Review(1L);
-		Review anotherReview = new Review(1L);
+		Review review = new Review(1L, null);
+		Review anotherReview = new Review(1L, null);
 		boolean actual = review.equals(anotherReview);
 		assertThat(actual, is(true));
+	}
+	
+	@Test
+	public void shouldGetCategory() {
+		Review review = new Review(1L, category);
+		Category actual = review.getCategory();
+		assertThat(actual, is(category));
 	}
 }

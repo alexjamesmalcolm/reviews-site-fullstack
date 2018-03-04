@@ -38,8 +38,9 @@ public class Review {
 		this.tags = new HashSet<>(Arrays.asList(tags));
 	}
 
-	public Review(long id) {
+	public Review(long id, Category category) {
 		this.id = id;
+		this.category = category;
 	}
 
 	public String getTitle() {
@@ -73,6 +74,10 @@ public class Review {
 
 	public Collection<Tag> getTags() {
 		return tags;
+	}
+
+	public Category getCategory() {
+		return category;
 	}
 
 }
