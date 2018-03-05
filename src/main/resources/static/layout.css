@@ -29,8 +29,12 @@ header nav ul {
 	display: flex;
 }
 
-nav ul li {
+header nav ul li {
 	margin: 0 1rem;
+}
+
+aside nav ul li {
+	margin-top: 2rem;
 }
 
 aside {
