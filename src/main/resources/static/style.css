@@ -1,19 +1,31 @@
-header {
-	background-color: #F0F000;
-	text-decoration: underline;
-	border-bottom: solid;
+* {
+	list-style-type: none;
 }
-	.page-title{
-		border-right: solid;
-	}
+
+header {
+	background-color: #bec0ec;
+	text-decoration: underline;
+}
 aside {
-	background-color: magenta;
-	border-right: solid;
+	background-color: #FFFFFF;
 }
 main {
-	background-color: #F00000;
+	background-color: #FFFFFF;
 }
 footer {
-	background-color: #0000F0;
-	border-top: solid;
+	background-color: #FFFFFF;
+}
+
+.tag {
+	margin: .2rem .3rem;
+    background-color: rgba(8,92,170,0.5);
+    border-radius: 3px;
+    color: #000;
+    padding: 2px 3px;
+}
+
+.count {
+	border-radius: 33%;
+	background-color: grey;
+	color: white;
 }
