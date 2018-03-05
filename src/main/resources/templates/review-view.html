@@ -18,7 +18,7 @@
 				</p>
 				<p th:text="${review.content}"/>
 				<p>Tags:
-					<a th:href="@{tag(id=${tag.id})}" th:each="tag : ${review.tags}">
+					<a class="tag" th:href="@{tag(id=${tag.id})}" th:each="tag : ${review.tags}">
 						<span th:text="${tag.name}"/>
 					</a>
 				</p>

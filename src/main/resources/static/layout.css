@@ -16,30 +16,21 @@ div.container.index {
 header {
 	grid-column: -1 / 1;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
-	display: grid;
-	grid-template-columns: 25% 75%
 }
-	.page-title{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	header.nav{
-		display: flex;
-		justify-content: center;
-	}
 
-	header.nav ul {
-		display: flex;
-	}
+header nav {
+	display: flex;
+	justify-content: center;
+}
+
+header nav ul {
+	display: flex;
+}
 
 nav ul li {
 	margin: 0 1rem;
-}
-
-main {
 }
 
 aside {
@@ -47,9 +38,6 @@ aside {
 	flex-direction: column;
 	align-items: center;
 }
-	aside.nav{
-
-	}
 
 footer {
 	grid-column: -1 / 1;

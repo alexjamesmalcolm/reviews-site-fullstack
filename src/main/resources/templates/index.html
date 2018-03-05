@@ -8,23 +8,19 @@
 <body>
 	<div class="container index">
 		<header>
-			<div class="page-title">
-				<h1>
-					Reviews Site Fullstack
-				</h1>
-			</div>
-			<div class="other">
-				<nav>
-					<ul>
-						<li>
-							<a href="/">Home</a>
-						</li>
-						<li>
-							<a href="/categories">Categories</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
+			<h1>
+				Reviews Site Fullstack
+			</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/categories">Categories</a>
+					</li>
+				</ul>
+			</nav>
 		</header>
 		<aside>
 			<nav>
@@ -43,10 +39,12 @@
 		</aside>
 		<main>
 			<article th:each="review : ${reviews}">
-				<h2>
-					<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
-				</h2>
-				<img th:src="@{${review.url}}"/>
+				<div class="article-fragment">
+					<h2>
+						<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+					</h2>
+					<img th:src="@{${review.url}}"/>
+				</div>
 			</article>
 		</main>
 		<footer th:fragment="footer">
