@@ -5,15 +5,18 @@
 header {
 	background-color: #bec0ec;
 	text-decoration: underline;
+	border-bottom: solid;
 }
 aside {
-	background-color: #FFFFFF;
+	background-color: lightsteelblue;
+	
 }
 main {
 	background-color: #FFFFFF;
 }
 footer {
-	background-color: #FFFFFF;
+	background-color: #bec0ec;
+	border-top: solid;
 }
 
 .tag {
