@@ -8,43 +8,47 @@
 <body>
 	<div class="container index">
 		<header>
-			<h1>
-				Reviews Site Fullstack
-			</h1>
+			<div class="page-title">
+				<h1>
+					Reviews Site Fullstack
+				</h1>
+			</div>
+			<div class="other">
+				<nav>
+					<ul>
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li>
+							<a href="/categories">Categories</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<aside>
 			<nav>
 				<ul>
 					<li>
 						<a href="/">Home</a>
 					</li>
-					<li>
-						<a href="/categories">Categories</a>
+					<li th:each="category : ${categories}">
+						<a th:href="@{category(id=${category.id})}">
+							<span class="category" th:text="${category.name}"/>
+							<span class="count" th:text="${category.getReviewsCount()}"/>
+						</a>
 					</li>
 				</ul>
-			</nav>
-		</header>
+			</nav>	
+		</aside>
 		<main>
 			<article th:each="review : ${reviews}">
-				<div class="article-fragment">
-					<h2>
-						<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
-					</h2>
-					<img th:src="@{${review.url}}"/>
-				</div>
+				<h2>
+					<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+				</h2>
+				<img th:src="@{${review.url}}"/>
 			</article>
 		</main>
-		<aside>
-			<ul>
-				<li>
-					<a href="/">Home</a>
-				</li>
-				<li th:each="category : ${categories}">
-					<a th:href="@{category(id=${category.id})}">
-						<span class="category" th:text="${category.name}"/>
-						<span class="count" th:text="${category.getReviewsCount()}"/>
-					</a>
-				</li>
-			</ul>
-		</aside>
 		<footer th:fragment="footer">
 			<small>
 				Website made by Ryan Carson and Alex Malcolm

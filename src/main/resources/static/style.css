@@ -1,12 +1,19 @@
 header {
 	background-color: #F0F000;
+	text-decoration: underline;
+	border-bottom: solid;
 }
+	.page-title{
+		border-right: solid;
+	}
 aside {
 	background-color: magenta;
+	border-right: solid;
 }
 main {
 	background-color: #F00000;
 }
 footer {
 	background-color: #0000F0;
+	border-top: solid;
 }
