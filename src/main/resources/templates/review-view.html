@@ -10,7 +10,8 @@
 		<header th:replace="index :: header"/>
 		<main>
 			<article>
-				<img th:src="@{'images/'+${review.url}}"/>
+				<h2 th:text="${review.title}"/>
+				<img class="big" th:src="@{'images/'+${review.url}}"/>
 				<p>Category:
 					<a th:href="@{category(id=${review.category.id})}">
 						<span th:text="@{${review.category.name}}"/>

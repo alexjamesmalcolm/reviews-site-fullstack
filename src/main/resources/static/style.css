@@ -1,3 +1,7 @@
+* {
+	list-style-type: none;
+}
+
 header {
 	background-color: #bec0ec;
 	text-decoration: underline;
@@ -18,4 +22,10 @@ footer {
     border-radius: 3px;
     color: #000;
     padding: 2px 3px;
+}
+
+.count {
+	border-radius: 33%;
+	background-color: grey;
+	color: white;
 }

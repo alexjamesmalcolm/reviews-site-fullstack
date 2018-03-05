@@ -31,8 +31,8 @@
 					<li th:each="category : ${categories}">
 						<a th:href="@{category(id=${category.id})}">
 							<span class="category" th:text="${category.name}"/>
-							<span class="count" th:text="${category.getReviewsCount()}"/>
 						</a>
+						<span class="count" th:text="${category.getReviewsCount()}"/>
 					</li>
 				</ul>
 			</nav>	
@@ -40,10 +40,10 @@
 		<main>
 			<article th:each="review : ${reviews}">
 				<div class="article-fragment">
+					<img class="icon" th:src="@{'images/'+${review.url}}"/>
 					<h2>
 						<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
 					</h2>
-					<img th:src="@{${review.url}}"/>
 				</div>
 			</article>
 		</main>
