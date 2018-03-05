@@ -3,40 +3,28 @@ package org.wecancodeit.reviewssitefullstack;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class CSVReader {
 
-	public static void main(String[] args) {
-		String csvFile = "consumer-reviews-of-amazon-products-QueryResult.csv";
+	private String filePath;
+
+	public CSVReader(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public Collection<String> parse() {
 		String line = "";
-		String cvsSplitBy = ",";
-
-		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-
+		List<String> result = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 			while ((line = br.readLine()) != null) {
-
-				// use comma as separator
-				String[] country = line.split(cvsSplitBy);
-
-				for (int i = 0; i < country.length; i++) {
-					if (i == 0) {
-						String item = country[i];
-						System.out.print(item);
-						System.out.print(" ");
-					}
-				}
-				System.out.println();
-
+				result.add(line);
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		return result;
 	}
-
-	public static String removeDoubleQuotes(String input) {
-		return input.replaceAll("\"", "");
-	}
-
 }
