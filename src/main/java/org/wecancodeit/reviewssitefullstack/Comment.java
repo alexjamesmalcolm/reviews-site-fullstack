@@ -6,10 +6,12 @@ public class Comment {
 
 	private String content;
 	private Date date;
+	private Review review;
 
-	public Comment(String content, Date date) {
+	public Comment(String content, Date date, Review review) {
 		this.content = content;
 		this.date = date;
+		this.review = review;
 	}
 
 	public String getContent() {
@@ -18,6 +20,10 @@ public class Comment {
 
 	public Date getDate() {
 		return date;
+	}
+
+	public Review getReview() {
+		return review;
 	}
 
 }
