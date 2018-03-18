@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -18,6 +18,10 @@ public class Comment {
 	private Date date;
 	@ManyToOne
 	private Review review;
+
+	@SuppressWarnings("unused")
+	private Comment() {
+	}
 
 	public Comment(String content, Date date, Review review) {
 		this.content = content;
@@ -35,6 +39,11 @@ public class Comment {
 
 	public Review getReview() {
 		return review;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return true;
 	}
 
 }

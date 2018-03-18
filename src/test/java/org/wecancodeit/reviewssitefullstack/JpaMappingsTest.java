@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -28,6 +30,9 @@ public class JpaMappingsTest {
 
 	@Resource
 	private ReviewRepository reviewRepo;
+
+	@Resource
+	private CommentRepository commentRepo;
 
 	@Test
 	public void shouldSaveAndLoadCategory() {
@@ -105,5 +110,24 @@ public class JpaMappingsTest {
 
 		review = reviewRepo.findOne(reviewId);
 		assertThat(review.getTags(), containsInAnyOrder(first, second));
+	}
+
+	@Test
+	public void shouldSaveCommentToReviewRelationship() {
+		Review review = new Review("", "", "", null);
+		reviewRepo.save(review);
+		long reviewId = review.getId();
+		
+		Comment comment = new Comment("", new Date(), review);
+		commentRepo.save(comment);
+		
+		Comment anotherComment = new Comment("", new Date(), review);
+		commentRepo.save(anotherComment);
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		review = reviewRepo.findOne(reviewId);
+		assertThat(review.getComments(), containsInAnyOrder(comment, anotherComment));
 	}
 }

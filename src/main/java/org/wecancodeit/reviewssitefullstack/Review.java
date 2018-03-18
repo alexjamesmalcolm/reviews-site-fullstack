@@ -27,7 +27,7 @@ public class Review {
 	private Category category;
 	@ManyToMany
 	private Collection<Tag> tags;
-	@OneToMany
+	@OneToMany(mappedBy = "review")
 	private List<Comment> comments;
 
 	@SuppressWarnings("unused")
