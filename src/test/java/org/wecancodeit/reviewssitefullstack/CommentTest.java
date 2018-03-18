@@ -58,4 +58,13 @@ public class CommentTest {
 		boolean actual = underTest.equals(check);
 		assertThat(actual, is(false));
 	}
+	
+	@Test
+	public void shouldGetId() {
+		long inputId = 1L;
+		Comment underTest = new Comment(inputId);
+		long id = underTest.getId();
+		boolean check = id == inputId;
+		assertThat(check, is(true));
+	}
 }

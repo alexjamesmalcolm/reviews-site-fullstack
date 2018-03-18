@@ -29,6 +29,10 @@ public class Comment {
 		this.review = review;
 	}
 
+	public Comment(long id) {
+		this.id = id;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -47,6 +51,10 @@ public class Comment {
 			return false;
 		}
 		return true;
+	}
+
+	public long getId() {
+		return id;
 	}
 
 }
