@@ -67,4 +67,13 @@ public class CommentTest {
 		boolean check = id == inputId;
 		assertThat(check, is(true));
 	}
+	
+	@Test
+	public void shouldHaveHashCodeBeIdAs2() {
+		Comment underTest = new Comment(2L);
+		long id = underTest.getId();
+		int hashCode = underTest.hashCode();
+		boolean check = id == hashCode;
+		assertThat(check, is(true));
+	}
 }

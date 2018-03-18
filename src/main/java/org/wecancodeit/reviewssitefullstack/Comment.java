@@ -47,7 +47,7 @@ public class Comment {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(!obj.getClass().equals(getClass())) {
+		if (!obj.getClass().equals(getClass())) {
 			return false;
 		}
 		return true;
@@ -55,6 +55,11 @@ public class Comment {
 
 	public long getId() {
 		return id;
+	}
+
+	@Override
+	public int hashCode() {
+		return 2;
 	}
 
 }
