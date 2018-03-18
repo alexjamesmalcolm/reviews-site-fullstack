@@ -59,7 +59,7 @@ public class Comment {
 
 	@Override
 	public int hashCode() {
-		return 2;
+		return (int) id;
 	}
 
 }
