@@ -85,4 +85,12 @@ public class CommentTest {
 		boolean check = id == hashCode;
 		assertThat(check, is(true));
 	}
+	
+	@Test
+	public void shouldHaveCommentsWithDifferentIdsNotEqual() {
+		Comment firstComment = new Comment(1L);
+		Comment secondComment = new Comment(2L);
+		boolean check = firstComment.equals(secondComment);
+		assertThat(check, is(false));
+	}
 }

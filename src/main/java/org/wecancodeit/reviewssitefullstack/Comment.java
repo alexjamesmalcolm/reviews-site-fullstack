@@ -50,6 +50,9 @@ public class Comment {
 		if (!obj.getClass().equals(getClass())) {
 			return false;
 		}
+		if(obj.hashCode() != hashCode()) {
+			return false;
+		}
 		return true;
 	}
 
