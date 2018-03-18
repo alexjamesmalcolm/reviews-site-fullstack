@@ -1,15 +1,24 @@
 package org.wecancodeit.reviewssitefullstack;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 public class CommentTest {
-	
+
 	@Test
-	public void shouldHaveContent() {
-		String content = "content";
+	public void shouldHaveContentFoo() {
+		String content = "Foo";
 		Comment underTest = new Comment(content);
-		Assert.assertThat(underTest.getContent(), Matchers.is(content));
+		assertThat(underTest.getContent(), is(content));
+	}
+
+	@Test
+	public void shouldHaveContentBar() {
+		String content = "Bar";
+		Comment underTest = new Comment(content);
+		String actual = underTest.getContent();
+		assertThat(actual, is(content));
 	}
 }

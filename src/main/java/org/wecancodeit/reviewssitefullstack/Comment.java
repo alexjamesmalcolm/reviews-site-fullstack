@@ -2,13 +2,14 @@ package org.wecancodeit.reviewssitefullstack;
 
 public class Comment {
 
+	private String content;
+
 	public Comment(String content) {
-		// TODO Auto-generated constructor stub
+		this.content = content;
 	}
 
-	public Object getContent() {
-		// TODO Auto-generated method stub
-		return "content";
+	public String getContent() {
+		return content;
 	}
 
 }
