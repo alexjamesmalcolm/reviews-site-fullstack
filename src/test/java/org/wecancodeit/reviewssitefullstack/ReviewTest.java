@@ -72,6 +72,7 @@ public class ReviewTest {
 	public void shouldHaveOtherClassNotEqualReview() {
 		underTest = new Review("", "", "", null);
 		String other = new String();
+		@SuppressWarnings("unlikely-arg-type")
 		boolean actual = underTest.equals(other);
 		assertThat(actual, is(false));
 	}

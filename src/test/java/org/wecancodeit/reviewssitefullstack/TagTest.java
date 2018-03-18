@@ -29,6 +29,7 @@ public class TagTest {
 	public void shouldHaveOtherClassNotEqual() {
 		underTest = new Tag("");
 		String other = new String();
+		@SuppressWarnings("unlikely-arg-type")
 		boolean actual = underTest.equals(other);
 		assertThat(actual, is(false));
 	}
