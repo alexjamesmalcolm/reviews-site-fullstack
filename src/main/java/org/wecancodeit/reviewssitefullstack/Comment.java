@@ -43,6 +43,9 @@ public class Comment {
 
 	@Override
 	public boolean equals(Object obj) {
+		if(!obj.getClass().equals(getClass())) {
+			return false;
+		}
 		return true;
 	}
 

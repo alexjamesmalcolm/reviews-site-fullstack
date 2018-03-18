@@ -49,4 +49,13 @@ public class CommentTest {
 		Review actual = underTest.getReview();
 		assertThat(actual, is(review));
 	}
+	
+	@Test
+	public void shouldNotEqualString() {
+		Comment underTest = new Comment("", new Date(), null);
+		String check = "";
+		@SuppressWarnings("unlikely-arg-type")
+		boolean actual = underTest.equals(check);
+		assertThat(actual, is(false));
+	}
 }
