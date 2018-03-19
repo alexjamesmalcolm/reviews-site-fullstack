@@ -3,8 +3,6 @@ package org.wecancodeit.reviewssitefullstack;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,22 +30,17 @@ public class ReviewSiteFullStackRestController {
 	@RequestMapping(value = "/review/{id}", method = PUT)
 	public Tag addTag(@PathVariable long id, @RequestParam String tagContent) {
 		Review review = reviewRepo.findOne(id);
-		List<Tag> copies = tagRepo.findByNameIgnoreCase(tagContent);
-		Tag tag;
-		if (copies.size() > 1) {
-			tagRepo.delete(copies.get(0));
-		}
-		if (copies.size() > 0) {
-			tag = copies.get(0);
-			review.addTag(tag);
-		} else {
+		Tag tag = tagRepo.findByNameIgnoreCase(tagContent);
+		if (tag == null) {
 			tag = new Tag(tagContent);
 			tagRepo.save(tag);
-			review.addTag(tag);
 		}
-		reviewRepo.save(review);
-		return tag;
-
+		if (!review.hasTag(tag)) {
+			review.addTag(tag);
+			reviewRepo.save(review);
+			return tag;
+		}
+		return null;
 	}
 
 }
