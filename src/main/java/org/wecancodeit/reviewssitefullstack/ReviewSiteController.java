@@ -61,8 +61,6 @@ public class ReviewSiteController {
 
 	@RequestMapping("/add-comment")
 	public String addComment(@RequestParam long id, Model model) {
-		System.out.println("AAAAAYYEEE");
-		System.out.println(id);
 		return "redirect:/review/"+id;
 	}
 
