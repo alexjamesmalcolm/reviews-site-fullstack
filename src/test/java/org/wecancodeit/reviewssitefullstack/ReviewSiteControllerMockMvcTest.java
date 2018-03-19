@@ -3,6 +3,7 @@ package org.wecancodeit.reviewssitefullstack;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -16,7 +17,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ReviewSiteController.class)
@@ -85,6 +85,6 @@ public class ReviewSiteControllerMockMvcTest {
 
 	@Test
 	public void shouldHaveAddCommentReturnReviewView() throws Exception {
-		mvc.perform(get("/add-comment?id=1")).andExpect(MockMvcResultMatchers.redirectedUrl("/review/1"));
+		mvc.perform(get("/add-comment?id=1")).andExpect(redirectedUrl("/review/1"));
 	}
 }
