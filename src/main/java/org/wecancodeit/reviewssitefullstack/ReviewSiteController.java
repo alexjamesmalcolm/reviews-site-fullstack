@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,23 +29,23 @@ public class ReviewSiteController {
 		return "categories-view";
 	}
 
-	@RequestMapping("/category")
-	public String getCategory(@RequestParam(value = "id", required = true) long categoryId, Model model) {
-		Category category = categoryRepo.findOne(categoryId);
+	@RequestMapping("/category/{id}")
+	public String getCategory(@PathVariable long id, Model model) {
+		Category category = categoryRepo.findOne(id);
 		model.addAttribute("category", category);
 		return "single-category-view";
 	}
 
-	@RequestMapping("/review")
-	public String getReview(@RequestParam(value = "id", required = true) long reviewId, Model model) {
-		Review review = reviewRepo.findOne(reviewId);
+	@RequestMapping("/review/{id}")
+	public String getReview(@PathVariable long id, Model model) {
+		Review review = reviewRepo.findOne(id);
 		model.addAttribute("review", review);
 		return "review-view";
 	}
 
-	@RequestMapping("/tag")
-	public String getTag(@RequestParam(value = "id", required = true) long tagId, Model model) {
-		Tag tag = tagRepo.findOne(tagId);
+	@RequestMapping("/tag/{id}")
+	public String getTag(@PathVariable long id, Model model) {
+		Tag tag = tagRepo.findOne(id);
 		model.addAttribute("tag", tag);
 		return "tag-view";
 	}

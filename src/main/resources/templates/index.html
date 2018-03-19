@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Review Site</title>
-	<link rel="stylesheet" type="text/css" href="layout.css"/>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link class="layout" rel="stylesheet" type="text/css" href="css/layout.css"/>
+	<link class="style" rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
 	<div class="container index">
@@ -29,7 +29,7 @@
 						<a href="/">Home</a>
 					</li>
 					<li th:each="category : ${categories}">
-						<a th:href="@{category(id=${category.id})}">
+						<a th:href="@{category/{category.id}}">
 							<span class="category" th:text="${category.name}"/>
 						</a>
 						<span class="count" th:text="${category.getReviewsCount()}"/>
@@ -40,9 +40,9 @@
 		<main>
 			<article th:each="review : ${reviews}">
 				<div class="article-fragment">
-					<img class="icon" th:src="@{'images/'+${review.url}}"/>
+					<img class="icon" th:src="@{images/{review.url}}"/>
 					<h2>
-						<a th:text="${review.title}" th:href="@{review(id=${review.id})}"/>
+						<a th:text="${review.title}" th:href="@{review/{review.id}}"/>
 					</h2>
 				</div>
 			</article>

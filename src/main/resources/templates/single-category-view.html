@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title th:text="${category.name}"/>
-	<link rel="stylesheet" type="text/css" href="layout.css"/>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link th:replace="index :: link.layout"/>
+	<link th:replace="index :: link.style"/>
 </head>
 <body>
 	<div class="container">
