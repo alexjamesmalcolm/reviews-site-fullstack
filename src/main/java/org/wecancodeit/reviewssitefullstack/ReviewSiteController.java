@@ -22,7 +22,7 @@ public class ReviewSiteController {
 
 	@Resource
 	private TagRepository tagRepo;
-	
+
 	@Resource
 	private CommentRepository commentRepo;
 
@@ -64,10 +64,12 @@ public class ReviewSiteController {
 	}
 
 	@RequestMapping("/add-comment")
-	public String addComment(@RequestParam long id, @RequestParam String comment, Model model) {
-		Review review = reviewRepo.findOne(id);
-		commentRepo.save(new Comment(comment, new Date(), review));
-		return "redirect:/review/"+id;
+	public String addComment(@RequestParam long id, @RequestParam String comment) {
+		if (comment.length() > 0) {
+			Review review = reviewRepo.findOne(id);
+			commentRepo.save(new Comment(comment, new Date(), review));
+		}
+		return "redirect:/review/" + id;
 	}
 
 }

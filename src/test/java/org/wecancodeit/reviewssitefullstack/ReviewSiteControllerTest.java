@@ -3,6 +3,7 @@ package org.wecancodeit.reviewssitefullstack;
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -147,13 +148,13 @@ public class ReviewSiteControllerTest {
 	
 	@Test
 	public void shouldHaveAddCommentRedirectToGetReview1L() {
-		String templateName = underTest.addComment(1L, "", model);
+		String templateName = underTest.addComment(1L, "");
 		assertThat(templateName, is("redirect:/review/1"));
 	}
 	
 	@Test
 	public void shouldHaveAddCommentRedirectToGetReview2L() {
-		String templateName = underTest.addComment(2L, "", model);
+		String templateName = underTest.addComment(2L, "");
 		assertThat(templateName, is("redirect:/review/2"));
 	}
 	
@@ -163,7 +164,17 @@ public class ReviewSiteControllerTest {
 		when(review.getId()).thenReturn(reviewId);
 		when(reviewRepo.findOne(reviewId)).thenReturn(review);
 		String content = "Foobar";
-		underTest.addComment(reviewId, content, model);
+		underTest.addComment(reviewId, content);
 		verify(commentRepo).save(new Comment(content, new Date(), review));
+	}
+	
+	@Test
+	public void shouldNotAddCommentIfThereIsNoContent() {
+		long reviewId=1L;
+		when(review.getId()).thenReturn(reviewId);
+		when(reviewRepo.findOne(reviewId)).thenReturn(review);
+		String content = "";
+		underTest.addComment(reviewId, content);
+		verify(commentRepo, never()).save(new Comment(content, new Date(), review));
 	}
 }
