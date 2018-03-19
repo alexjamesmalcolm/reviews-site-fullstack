@@ -59,4 +59,8 @@ public class ReviewSiteController {
 		return "index";
 	}
 
+	public String addComment() {
+		return "review-view";
+	}
+
 }

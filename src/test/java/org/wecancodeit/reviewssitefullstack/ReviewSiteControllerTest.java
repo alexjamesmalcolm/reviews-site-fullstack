@@ -140,4 +140,10 @@ public class ReviewSiteControllerTest {
 		String templateName = underTest.getTag(0L, model);
 		assertThat(templateName, is("tag-view"));
 	}
+	
+	@Test
+	public void shouldHaveAddCommentReturnReviewView() {
+		String templateName = underTest.addComment();
+		assertThat(templateName, is("review-view"));
+	}
 }
