@@ -4,8 +4,9 @@
 	<title>Categories</title>
 	<link th:replace="index :: link.layout"/>
 	<link th:replace="index :: link.style"/>
+	<script th:replace="index :: script.app"/>
 </head>
-<body>
+<body onload="initialize()">
 	<div class="container">
 		<header th:replace="index :: header"/>
 		<main>
