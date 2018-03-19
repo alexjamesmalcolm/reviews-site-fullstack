@@ -1,6 +1,7 @@
 package org.wecancodeit.reviewssitefullstack;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.annotation.Resource;
 
@@ -21,6 +22,9 @@ public class ReviewSiteController {
 
 	@Resource
 	private TagRepository tagRepo;
+	
+	@Resource
+	private CommentRepository commentRepo;
 
 	@RequestMapping("/categories")
 	public String getCategories(Model model) {
@@ -60,7 +64,9 @@ public class ReviewSiteController {
 	}
 
 	@RequestMapping("/add-comment")
-	public String addComment(@RequestParam long id, Model model) {
+	public String addComment(@RequestParam long id, String content, Model model) {
+		Review review = reviewRepo.findOne(id);
+		commentRepo.save(new Comment(content, new Date(), review));
 		return "redirect:/review/"+id;
 	}
 

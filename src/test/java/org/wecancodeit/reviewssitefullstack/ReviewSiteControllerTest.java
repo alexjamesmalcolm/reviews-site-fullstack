@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +50,9 @@ public class ReviewSiteControllerTest {
 
 	@Mock
 	private Model model;
+
+	@Mock
+	private CommentRepository commentRepo;
 
 	@Before
 	public void setup() {
@@ -143,13 +147,23 @@ public class ReviewSiteControllerTest {
 	
 	@Test
 	public void shouldHaveAddCommentRedirectToGetReview1L() {
-		String templateName = underTest.addComment(1L, model);
+		String templateName = underTest.addComment(1L, "", model);
 		assertThat(templateName, is("redirect:/review/1"));
 	}
 	
 	@Test
 	public void shouldHaveAddCommentRedirectToGetReview2L() {
-		String templateName = underTest.addComment(2L, model);
+		String templateName = underTest.addComment(2L, "", model);
 		assertThat(templateName, is("redirect:/review/2"));
+	}
+	
+	@Test
+	public void shouldHaveAddCommentAcceptContent() {
+		long reviewId = 1L;
+		when(review.getId()).thenReturn(reviewId);
+		when(reviewRepo.findOne(reviewId)).thenReturn(review);
+		String content = "Foobar";
+		underTest.addComment(reviewId, content, model);
+		verify(commentRepo).save(new Comment(content, new Date(), review));
 	}
 }
