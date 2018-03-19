@@ -25,7 +25,7 @@
 					<span>Tags: </span>
 					<span class="tag" th:each="tag : ${review.tags}">
 						<a th:href="@{'/tag/' + ${tag.id}}" th:text="${tag.name}"/>
-						<button class="remove-tag">X</button>
+						<button class="remove-tag" th:value="${tag.id}">X</button>
 					</span>
 				</p>
 				<form class="add-tag">

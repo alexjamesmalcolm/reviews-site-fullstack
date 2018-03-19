@@ -85,6 +85,6 @@ public class ReviewSiteControllerMockMvcTest {
 
 	@Test
 	public void shouldHaveAddCommentReturnReviewView() throws Exception {
-		mvc.perform(get("/add-comment?id=1")).andExpect(redirectedUrl("/review/1"));
+		mvc.perform(get("/add-comment?id=1&comment=foobar")).andExpect(redirectedUrl("/review/1"));
 	}
 }
