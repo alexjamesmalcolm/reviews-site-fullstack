@@ -12,10 +12,10 @@
 			<h1 th:text="${review.title}" />
 			<article class="review">
 				<h2>Review</h2>
-				<img class="big" th:src="@{images/{review.url}}"/>
+				<img class="big" th:src="@{'/images/' + ${review.url}}"/>
 				<p class="category">
 					<span>Category: </span>
-					<a th:href="@{category/{review.category.id}}">
+					<a th:href="@{'/category/' + ${review.category.id}}">
 						<span th:text="${review.category.name}" />
 					</a>
 				</p>
@@ -23,7 +23,7 @@
 				<p class="tags">
 					<span>Tags: </span>
 					<span class="tag" th:each="tag : ${review.tags}">
-						<a th:href="@{tag/{tag.id}}" th:text="${tag.name}"/>
+						<a th:href="@{'/tag/' + ${tag.id}}" th:text="${tag.name}"/>
 						<button class="remove-tag">X</button>
 					</span>
 				</p>
