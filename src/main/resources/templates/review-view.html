@@ -21,11 +21,11 @@
 				</p>
 				<p th:text="${review.content}" />
 				<p class="tags">
-					<span>Tags:</span>
-					<a class="tag" th:href="@{tag(id=${tag.id})}" th:each="tag : ${review.tags}">
-						<span th:text="${tag.name}" />
-					</a>
-					<button class="remove-tag">X</button>
+					<span>Tags: </span>
+					<span class="tag" th:each="tag : ${review.tags}">
+						<a th:href="@{tag(id=${tag.id})}" th:text="${tag.name}"/>
+						<button class="remove-tag">X</button>
+					</span>
 				</p>
 			</article>
 			<section class="comments">
