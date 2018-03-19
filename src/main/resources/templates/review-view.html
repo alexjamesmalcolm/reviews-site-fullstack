@@ -29,7 +29,7 @@
 					</span>
 				</p>
 				<form class="add-tag">
-					<input type="text" name="tag" placeholder="Tag..."></input>
+					<input required="required" type="text" name="tag" placeholder="Tag..."></input>
 					<button type="submit" name="id" th:value="${review.id}">+</button>
 				</form>
 			</article>
@@ -43,7 +43,7 @@
 			<section class="add-comment">
 				<h2>Add a comment</h2>
 				<form action = "/add-comment">
-					<input type="text" name="comment" placeholder="Enter your comment..."></input>
+					<input required="required" type="text" name="comment" placeholder="Enter your comment..."></input>
 					<button type="submit" name="id" th:value="${review.id}">Submit</button>
 				</form>
 			</section>

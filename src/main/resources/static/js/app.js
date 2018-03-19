@@ -1,12 +1,16 @@
+const addRemoveTagListener = (reviewId, tag) => {
+	const button = tag.querySelector("button.remove-tag");
+	button.addEventListener("click", () => {
+		removeTag(reviewId, tag);
+	});
+};
+
 function initialize() {
 	const container = document.body.querySelector("div.container");
-	const tags = container.querySelectorAll("span.tag");
 	const reviewId = container.querySelector("form.add-tag button").value;
+	const tags = container.querySelectorAll("span.tag");
 	tags.forEach(tag => {
-		const button = tag.querySelector("button.remove-tag");
-		button.addEventListener("click", () => {
-			removeTag(reviewId, tag);
-		});
+		addRemoveTagListener(reviewId, tag);
 	});
 	const addTagForm = container.querySelector("form.add-tag");
 	addTagForm.addEventListener("submit", (event) => {
@@ -41,9 +45,10 @@ function addTag(id, content, tags) {
 			tag.classList.add("tag");
 			tag.innerHTML = `
 			<a href="/tag/${response.id}">${response.name}</a>
-			<button class="remove-tag">X</button>
+			<button class="remove-tag" value="${response.id}">X</button>
 			`;
 			tags.appendChild(tag);
+			addRemoveTagListener(id, tag);
 		}
 	};
 	const location = `/review/${id}?tagContent=${content}`;

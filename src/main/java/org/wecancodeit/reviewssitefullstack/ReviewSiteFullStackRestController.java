@@ -17,7 +17,7 @@ public class ReviewSiteFullStackRestController {
 
 	@Resource
 	private TagRepository tagRepo;
-	
+
 	@Resource
 	private ReviewRepository reviewRepo;
 
@@ -26,14 +26,18 @@ public class ReviewSiteFullStackRestController {
 		Review review = reviewRepo.findOne(id);
 		Tag tag = tagRepo.findOne(tagId);
 		review.removeTag(tag);
+		reviewRepo.save(review);
 	}
-	
+
 	@RequestMapping(value = "/review/{id}", method = PUT)
 	public Tag addTag(@PathVariable long id, @RequestParam String tagContent) {
 		Review review = reviewRepo.findOne(id);
 		List<Tag> copies = tagRepo.findByNameIgnoreCase(tagContent);
 		Tag tag;
-		if(copies.size() > 0) {
+		if (copies.size() > 1) {
+			tagRepo.delete(copies.get(0));
+		}
+		if (copies.size() > 0) {
 			tag = copies.get(0);
 			review.addTag(tag);
 		} else {
@@ -41,8 +45,9 @@ public class ReviewSiteFullStackRestController {
 			tagRepo.save(tag);
 			review.addTag(tag);
 		}
+		reviewRepo.save(review);
 		return tag;
-		
+
 	}
 
 }
