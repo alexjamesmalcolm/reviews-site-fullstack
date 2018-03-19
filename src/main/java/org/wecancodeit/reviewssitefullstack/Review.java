@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Review {
 	@ManyToOne
 	private Category category;
 	@ManyToMany
-	private Collection<Tag> tags;
+	private Set<Tag> tags;
 	@OneToMany(mappedBy = "review")
 	private List<Comment> comments;
 
@@ -94,6 +95,10 @@ public class Review {
 
 	public void addTag(Tag tag) {
 		tags.add(tag);
+	}
+
+	public boolean hasTag(Tag tag) {
+		return getTags().contains(tag);
 	}
 
 }

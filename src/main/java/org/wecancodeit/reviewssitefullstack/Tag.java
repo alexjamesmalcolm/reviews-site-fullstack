@@ -1,11 +1,14 @@
 package org.wecancodeit.reviewssitefullstack;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Tag {
@@ -14,8 +17,9 @@ public class Tag {
 	@GeneratedValue
 	private long id;
 	private String name;
+	@JsonIgnore
 	@ManyToMany(mappedBy = "tags")
-	private Collection<Review> reviews;
+	private Set<Review> reviews;
 
 	@SuppressWarnings("unused")
 	private Tag() {
@@ -36,7 +40,7 @@ public class Tag {
 	public long getId() {
 		return id;
 	}
-
+	
 	public Collection<Review> getReviews() {
 		return reviews;
 	}

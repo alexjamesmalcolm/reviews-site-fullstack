@@ -39,16 +39,19 @@ function addTag(id, content, tags) {
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = () => {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			const response = JSON.parse(xhr.responseText);
-			console.log(response);
-			const tag = document.createElement("span");
-			tag.classList.add("tag");
-			tag.innerHTML = `
-			<a href="/tag/${response.id}">${response.name}</a>
-			<button class="remove-tag" value="${response.id}">X</button>
-			`;
-			tags.appendChild(tag);
-			addRemoveTagListener(id, tag);
+			console.log(xhr);
+			if(xhr.responseText) {
+				const response = JSON.parse(xhr.responseText);
+				console.log(response);
+				const tag = document.createElement("span");
+				tag.classList.add("tag");
+				tag.innerHTML = `
+				<a href="/tag/${response.id}">${response.name}</a>
+				<button class="remove-tag" value="${response.id}">X</button>
+				`;
+				tags.appendChild(tag);
+				addRemoveTagListener(id, tag);
+			}
 		}
 	};
 	const location = `/review/${id}?tagContent=${content}`;
