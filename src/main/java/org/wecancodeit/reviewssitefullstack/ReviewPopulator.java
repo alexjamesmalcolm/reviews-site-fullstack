@@ -1,5 +1,7 @@
 package org.wecancodeit.reviewssitefullstack;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +18,9 @@ public class ReviewPopulator implements CommandLineRunner {
 
 	@Resource
 	private TagRepository tagRepo;
+	
+	@Resource
+	private CommentRepository commentRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -44,5 +49,7 @@ public class ReviewPopulator implements CommandLineRunner {
 		Review dannyLeavingChipsOnMyCouch = reviewRepo.save(new Review(
 				"Danny spilling chips on my couch and then noticing and not cleaning them up even though he admitted to spilling them",
 				"dorito.jpg", "Not that good, probably wouldn't watch again", movie, bad));
+		
+		Comment comment = commentRepo.save(new Comment("Not cool!", new Date(), dannyLeavingChipsOnMyCouch));
 	}
 }
