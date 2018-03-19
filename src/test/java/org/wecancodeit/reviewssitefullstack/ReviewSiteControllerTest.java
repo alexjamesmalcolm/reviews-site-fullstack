@@ -142,8 +142,14 @@ public class ReviewSiteControllerTest {
 	}
 	
 	@Test
-	public void shouldHaveAddCommentReturnReviewView() {
-		String templateName = underTest.addComment();
-		assertThat(templateName, is("review-view"));
+	public void shouldHaveAddCommentRedirectToGetReview1L() {
+		String templateName = underTest.addComment(1L, model);
+		assertThat(templateName, is("redirect:/review/1"));
+	}
+	
+	@Test
+	public void shouldHaveAddCommentRedirectToGetReview2L() {
+		String templateName = underTest.addComment(2L, model);
+		assertThat(templateName, is("redirect:/review/2"));
 	}
 }
