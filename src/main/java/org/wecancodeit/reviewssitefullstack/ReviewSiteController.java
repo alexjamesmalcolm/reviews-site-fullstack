@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReviewSiteController {
@@ -58,7 +59,10 @@ public class ReviewSiteController {
 		return "index";
 	}
 
-	public String addComment(long id, Model model) {
+	@RequestMapping("/add-comment")
+	public String addComment(@RequestParam long id, Model model) {
+		System.out.println("AAAAAYYEEE");
+		System.out.println(id);
 		return "redirect:/review/"+id;
 	}
 
