@@ -64,9 +64,9 @@ public class ReviewSiteController {
 	}
 
 	@RequestMapping("/add-comment")
-	public String addComment(@RequestParam long id, String content, Model model) {
+	public String addComment(@RequestParam long id, @RequestParam String comment, Model model) {
 		Review review = reviewRepo.findOne(id);
-		commentRepo.save(new Comment(content, new Date(), review));
+		commentRepo.save(new Comment(comment, new Date(), review));
 		return "redirect:/review/"+id;
 	}
 
