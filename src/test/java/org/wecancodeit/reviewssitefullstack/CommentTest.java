@@ -97,7 +97,14 @@ public class CommentTest {
 	@Test
 	public void shouldGetYear1969() {
 		Comment underTest = new Comment("", new Date(0), null);
-		int year = underTest.getYear();
-		assertThat(year, is(1969));
+		String year = underTest.getYear();
+		assertThat(year, is("1969"));
+	}
+	
+	@Test
+	public void shouldGetYear1970() {
+		Comment underTest = new Comment("", new Date(20000000), null);
+		String year = underTest.getYear();
+		assertThat(year, is("1970"));
 	}
 }

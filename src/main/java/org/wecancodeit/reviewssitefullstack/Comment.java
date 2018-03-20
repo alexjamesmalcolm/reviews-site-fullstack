@@ -1,5 +1,6 @@
 package org.wecancodeit.reviewssitefullstack;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -65,8 +66,8 @@ public class Comment {
 		return (int) id;
 	}
 
-	public int getYear() {
-		return 1969;
+	public String getYear() {
+		return new SimpleDateFormat("yyyy").format(getDate());
 	}
 
 }
