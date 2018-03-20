@@ -35,7 +35,7 @@
 			</article>
 			<section class="comments">
 				<h2>Comments</h2>
-				<div class="comment" th:each="comment : ${review.comments}">
+				<div th:id="'comment-'+${comment.id}" class="comment" th:each="comment : ${review.comments}">
 					<time th:text="${comment.getSimpleDate()}" />
 					<p th:text="${comment.content}" />
 				</div>
