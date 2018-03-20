@@ -36,7 +36,7 @@
 			<section class="comments">
 				<h2>Comments</h2>
 				<div class="comment" th:each="comment : ${review.comments}">
-					<time th:text="${comment.date}" />
+					<time th:text="${comment.getSimpleDate()}" />
 					<p th:text="${comment.content}" />
 				</div>
 			</section>
