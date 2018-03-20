@@ -7,19 +7,22 @@ const addRemoveTagListener = (reviewId, tag) => {
 
 function initialize() {
 	const container = document.body.querySelector("div.container");
-	const reviewId = container.querySelector("form.add-tag button").value;
-	const tags = container.querySelectorAll("span.tag");
-	tags.forEach(tag => {
-		addRemoveTagListener(reviewId, tag);
-	});
-	const addTagForm = container.querySelector("form.add-tag");
-	addTagForm.addEventListener("submit", (event) => {
-		event.preventDefault();
-		const content = addTagForm.querySelector("input").value;
-		const pTags = container.querySelector("p.tags");
-		addTag(reviewId, content, pTags);
-		addTagForm.querySelector("input").value = "";
-	});
+	const button = container.querySelector("form.add-tag button");
+	if(button) {
+		const reviewId = button.value;
+		const tags = container.querySelectorAll("span.tag");
+		tags.forEach(tag => {
+			addRemoveTagListener(reviewId, tag);
+		});
+		const addTagForm = container.querySelector("form.add-tag");
+		addTagForm.addEventListener("submit", (event) => {
+			event.preventDefault();
+			const content = addTagForm.querySelector("input").value;
+			const pTags = container.querySelector("p.tags");
+			addTag(reviewId, content, pTags);
+			addTagForm.querySelector("input").value = "";
+		});
+	}
 }
 
 function removeTag(id, tag) {
