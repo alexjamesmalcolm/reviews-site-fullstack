@@ -93,4 +93,11 @@ public class CommentTest {
 		boolean check = firstComment.equals(secondComment);
 		assertThat(check, is(false));
 	}
+	
+	@Test
+	public void shouldGetYear1969() {
+		Comment underTest = new Comment("", new Date(0), null);
+		int year = underTest.getYear();
+		assertThat(year, is(1969));
+	}
 }

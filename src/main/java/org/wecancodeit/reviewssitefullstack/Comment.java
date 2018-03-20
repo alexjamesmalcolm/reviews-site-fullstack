@@ -19,18 +19,8 @@ public class Comment {
 	@ManyToOne
 	private Review review;
 
-	@SuppressWarnings("unused")
-	private Comment() {
-	}
-
-	public Comment(String content, Date date, Review review) {
-		this.content = content;
-		this.date = date;
-		this.review = review;
-	}
-
-	public Comment(long id) {
-		this.id = id;
+	public long getId() {
+		return id;
 	}
 
 	public String getContent() {
@@ -45,6 +35,20 @@ public class Comment {
 		return review;
 	}
 
+	@SuppressWarnings("unused")
+	private Comment() {
+	}
+
+	public Comment(String content, Date date, Review review) {
+		this.content = content;
+		this.date = date;
+		this.review = review;
+	}
+
+	public Comment(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!obj.getClass().equals(getClass())) {
@@ -56,13 +60,13 @@ public class Comment {
 		return true;
 	}
 
-	public long getId() {
-		return id;
-	}
-
 	@Override
 	public int hashCode() {
 		return (int) id;
+	}
+
+	public int getYear() {
+		return 1969;
 	}
 
 }
