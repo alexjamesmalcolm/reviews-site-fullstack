@@ -35,17 +35,8 @@ public class Review {
 	private Review() {
 	}
 
-	public Review(String title, String url, String content, Category category, Tag... tags) {
-		this.title = title;
-		this.url = url;
-		this.content = content;
-		this.category = category;
-		this.tags = new HashSet<>(Arrays.asList(tags));
-	}
-
-	public Review(long id, Category category) {
-		this.id = id;
-		this.category = category;
+	public long getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -60,6 +51,31 @@ public class Review {
 		return content;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public Review(String title, String url, String content, Category category, Tag... tags) {
+		this.title = title;
+		this.url = url;
+		this.content = content;
+		this.category = category;
+		this.tags = new HashSet<>(Arrays.asList(tags));
+	}
+
+	public Review(long id, Category category) {
+		this.id = id;
+		this.category = category;
+	}
+
 	@Override
 	public int hashCode() {
 		return ((Long) id).hashCode();
@@ -71,22 +87,6 @@ public class Review {
 			return false;
 		}
 		return obj.hashCode() == hashCode();
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public Collection<Tag> getTags() {
-		return tags;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-	
-	public List<Comment> getComments() {
-		return comments;
 	}
 
 	public void removeTag(Tag tag) {
