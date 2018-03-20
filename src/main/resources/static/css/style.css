@@ -4,19 +4,16 @@
 
 header {
 	background-color: #bec0ec;
-	text-decoration: underline;
-	border-bottom: solid;
 }
 aside {
-	background-color: lightsteelblue;
-	
+	background-color: #dedede;
+	text-align: center;
 }
 main {
 	background-color: #FFFFFF;
 }
 footer {
 	background-color: #bec0ec;
-	border-top: solid;
 }
 
 .tag {
@@ -31,4 +28,8 @@ footer {
 	border-radius: 33%;
 	background-color: grey;
 	color: white;
+}
+
+button.remove-tag {
+	border-radius: 30%;
 }
