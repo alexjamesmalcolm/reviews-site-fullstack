@@ -8,7 +8,7 @@ const addRemoveTagListener = (reviewId, tag) => {
 function initialize() {
 	const container = document.body.querySelector("div.container");
 	const button = container.querySelector("form.add-tag button");
-	if(button) {
+	if (button) {
 		const reviewId = button.value;
 		const tags = container.querySelectorAll("span.tag");
 		tags.forEach(tag => {
