@@ -34,12 +34,24 @@ button.remove-tag {
 	border-radius: 45%;
 	padding-right: 2px;
 	padding-left: 2px;
+	border-bottom: 1px;
 }
 
 div.comment {
-	border: 1px solid grey;
 	margin: 0.7rem 0;
+	display: flex;
+	align-items: center;
+}
+
+div.comment > p, time {
+	border: 1px solid grey;
 	padding: 0.2rem;
+	height: max-content;
+}
+
+div.comment > time {
+	width: 4.6rem;
+	margin-right: 1rem;
 }
 
 section.comments {
