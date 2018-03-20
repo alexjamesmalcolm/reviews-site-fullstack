@@ -96,8 +96,15 @@ public class CommentTest {
 	
 	@Test
 	public void shouldGetSimpleDate() {
-		Comment underTest = new Comment("", new Date(0), null);
+		Comment underTest = new Comment("", new Date(0L), null);
 		String date = underTest.getSimpleDate();
-		assertThat(date, is("12/31/1969 07:00"));
+		assertThat(date, is("12/31/1969 07:00 PM"));
+	}
+	
+	@Test
+	public void shouldGetSimpleDateJanuary2000() {
+		Comment underTest = new Comment("", new Date(946702800000L), null);
+		String date = underTest.getSimpleDate();
+		assertThat(date, is("01/01/2000 12:00 AM"));
 	}
 }
