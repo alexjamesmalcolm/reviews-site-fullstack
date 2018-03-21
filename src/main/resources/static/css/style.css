@@ -18,9 +18,8 @@ footer {
 
 .tag {
 	margin: .2rem .3rem;
-    background-color: rgba(8,92,170,0.5);
+    background-color: rgba(38, 126, 208, 0.5);
     border-radius: 3px;
-    color: #000;
     padding: 2px 3px;
 }
 
