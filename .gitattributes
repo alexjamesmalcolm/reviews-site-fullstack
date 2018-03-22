@@ -1,2 +1,2 @@
-src/test/jasmine/lib linguist-vendored
+src/test/jasmine/lib/**/*.js linguist-vendored
 src/test/jasmine/SpecRunner.html linguist-vendored
