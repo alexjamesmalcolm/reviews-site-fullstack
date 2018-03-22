@@ -5,22 +5,25 @@
 header {
 	background-color: #bec0ec;
 }
+
 aside {
 	background-color: #dedede;
 	text-align: center;
 }
+
 main {
 	background-color: #FFFFFF;
 }
+
 footer {
 	background-color: #bec0ec;
 }
 
 .tag {
 	margin: .2rem .3rem;
-    background-color: rgba(38, 126, 208, 0.5);
-    border-radius: 3px;
-    padding: 2px 3px;
+	background-color: rgba(38, 126, 208, 0.5);
+	border-radius: 3px;
+	padding: 2px 3px;
 }
 
 .count {
@@ -42,13 +45,13 @@ div.comment {
 	align-items: center;
 }
 
-div.comment > p, time {
+div.comment>p, time {
 	border: 1px solid grey;
 	padding: 0.2rem;
 	height: max-content;
 }
 
-div.comment > time {
+div.comment>time {
 	width: 4.6rem;
 	margin-right: 1rem;
 }
@@ -56,4 +59,17 @@ div.comment > time {
 section.comments {
 	word-break: break-word;
 	max-width: 60rem;
+}
+
+a.fork-me {
+	position: fixed;
+	top: 2.7rem;
+	right: -2.7rem;
+	background-color: #a80000;
+	border: 2px dotted rgba(255, 255, 255, 0.6);
+	transform: rotateZ(45deg);
+	color: white;
+	text-decoration: none;
+	padding: 0.3rem 2.3rem;
+	box-shadow: 3px -3px 20px -5px rgba(0, 0, 0, 0.7);
 }
