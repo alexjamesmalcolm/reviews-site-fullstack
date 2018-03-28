@@ -22,6 +22,7 @@ public class ReviewPopulator implements CommandLineRunner {
 	@Resource
 	private CommentRepository commentRepo;
 
+	@SuppressWarnings("unused")
 	@Override
 	public void run(String... args) throws Exception {
 
